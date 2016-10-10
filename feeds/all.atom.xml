@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Re:从零开始的魔法禁书目录</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-10-09T17:30:00+08:00</updated><entry><title>Re:从零开始搭建静态网站</title><link href="/Re:build%20a%20static%20site.html" rel="alternate"></link><published>2016-10-09T17:30:00+08:00</published><updated>2016-10-09T17:30:00+08:00</updated><author><name>chiasg</name></author><id>tag:,2016-10-09:Re:build a static site.html</id><summary type="html">&lt;p&gt;pelican是Python开发的一个开源静态网页生成器，代码托管在Github[https://github.com/getpelican/pelican]&lt;/p&gt;
+&lt;h2&gt;搭建Pelican环境&lt;/h2&gt;
+&lt;p&gt;首先安装Python和pip，Linux系统自带，Windows到Python官网下载个即可，推荐用Py3。&lt;/p&gt;
+&lt;p&gt;最好使用virtualenv或者其他工具创建一个虚拟环境并且进入虚拟环境，当然也可以不创建。&lt;/p&gt;
+&lt;p&gt;我这里是创建了虚拟环境的，以下命令都是在虚拟环境下执行。&lt;/p&gt;
+&lt;h2&gt;安装pelican&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;安装markdown&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install Markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;创建网站项目&lt;/h2&gt;
+&lt;p&gt;在虚拟环境创建一个文件夹，然后cd进去这个文件夹执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;将会出现多个没啥卵用的配置提示，可以根据实际情况填写，也可以使用默认，反正后面可以在pelicanconf.py改。&lt;/p&gt;
+&lt;p&gt;执行成功之后，会在这个文件夹下生成一堆文件，类似于：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yoursite/
+├── content                # 存放输入的markdown或RST源文件
+│   └── (pages)            # 存放手工创建的静态页面，可选
+│   └── (posts)            # 存放手工创建的文章，可选
+├── output                 # 存放最终生成的静态博客
+├── develop_server.sh      # 测试服务器
+├── Makefile               # 管理博客的Makefile
+├── pelicanconf.py         # 配置文件
+└── publishconf.py         # 发布文件，可删除
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;选择博客主题&lt;/h2&gt;
+&lt;p&gt;到[https://github.com/getpelican/pelican-themes]随便选个喜欢的下载下来放到你网站项目下除了默认生成的文件夹以外，其他任何你喜欢的地方，我自己就新建了一个themes文件夹，将主题扔进去。&lt;/p&gt;
+&lt;p&gt;然后修改pelicanconf.py文件，添加上你的主题路径，类似于：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;THEME = &amp;#39;themes/YourThemesName&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;添加评论系统&lt;/h2&gt;
+&lt;p&gt;到Disqus申请一个Shortname，然后添加到pelicanconf.py文件，类似于：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DISQUS_SITENAME = Shortname
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;添加文章内容&lt;/h2&gt;
+&lt;p&gt;使用markdown语法写一个.md的文件，Windows用户注意编码是utf-8，放到content文件夹下面，最好在这里建一个posts和pages文件夹以便区分。&lt;/p&gt;
+&lt;h2&gt;生成静态网页&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican content
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;将会在output文件夹生成一堆文件。&lt;/p&gt;
+&lt;h2&gt;预览一下&lt;/h2&gt;
+&lt;p&gt;cd进output文件夹执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m http.server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;打开127.0.0.1:8000看看OK了没。&lt;/p&gt;
+&lt;h2&gt;上传静态文件&lt;/h2&gt;
+&lt;p&gt;将output文件夹内的文件上传到Github之类的玩意，这个就不用废话了吧……&lt;/p&gt;
+&lt;p&gt;本来想将执行过程中的全部命令复制上来的，可惜这巨硬自信推出的垃圾Windows10时不时会出现无法唤醒的问题，强制关机了，没法了。&lt;/p&gt;</summary><category term="pelican"></category><category term="publishing"></category></entry></feed>
